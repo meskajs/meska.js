@@ -1,0 +1,41 @@
+{
+  "name": "meska.js",
+  "version": "1.0.2",
+  "description": "Meska.js",
+  "main": "meska.js",
+  "license": "MIT",
+  "author": {
+    "name": "Arda Engin Ebcim",
+    "email": "ardaenginebcim@outlook.com"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "test": "nodemon test/test.js"
+  },
+  "keywords": [
+    "meska",
+    "logger",
+    "log",
+    "npm-logger",
+    "node-logger",
+    "discord",
+    "discord-button",
+    "discord-buttons"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meskajs/meska.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/meskajs/meska.js/issues"
+  },
+  "homepage": "https://github.com/meskajs/meska.js#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "discord.js": "^12.5.3",
+    "fs": "^0.0.1-security",
+    "moment": "^2.29.1"
+  }
+}
