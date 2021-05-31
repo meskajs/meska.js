@@ -35,14 +35,40 @@ npm install meska.js
 ## Example usage
 
 ```js
-const Meska = require('meska.js');
-const Logger = new Meska.Logger()
+const Discord = require("discord.js");
+let client = new Discord.Client();
 
-Logger.log("MESKA.JS", "Log Message.", true)
-Logger.info("MESKA.JS", "İnfo Message.", true)
-Logger.success("MESKA.JS", "Success Message.", true)
-Logger.warn("MESKA.JS", "Warn Message.", true)
-Logger.error("MESKA.JS", "Error Message.", true)
+
+const Meska = require("meska.js");
+let Logger = new Meska.Logger();
+let DiscordClient = new Meska.DiscordClient(client);
+
+Logger.log("MESKA.JS", "Test Message.", true);
+Logger.info("MESKA.JS", "Test Message.", true);
+Logger.success("MESKA.JS", "Test Message.", true);
+Logger.warn("MESKA.JS", "Test Message.", true);
+Logger.error("MESKA.JS", "Test Message.", true);
+
+let button = new DiscordClient.MessageButton()
+  .setStyle("blurple")
+  .setLabel("Meska!")
+  .setID("meska");
+
+client.on("message", async (message) => {
+  if (message.content == "!meska") {
+    message.channel.send("Meska!", button);
+  }
+});
+
+client.on("clickButton", async (button) => {
+  if (button.id === "meska") {
+    Logger.info("BUTTON", button.clicker.user.id + " clicked button!")
+    button.channel.send("<@" + button.clicker.user.id + "> clicked button!");
+    button.clicker.member.roles.add("ROLE_ID")
+  }
+});
+
+client.login("YOUR_BOT_TOKEN");
 ```
 
 ## Links
